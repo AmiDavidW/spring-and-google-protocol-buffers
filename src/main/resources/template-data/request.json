@@ -1,0 +1,41 @@
+{
+	"owner": "tfo@sap.com",
+	"market": {
+		"marketId": "A1"
+	},
+	"description": "test order",
+	"customer": {
+		"customerNumber": "7519348631"
+	},
+	"paymentData": {
+		"paymentMethod": "Invoice"
+	},
+	"orderItems": [
+		{
+			"itemType": "salesItem",
+			"product": {
+				"id": "437afefd-022d-4ebf-8f6d-cd80742f6dab"
+			},
+			"quantity": {
+				"value": 1,
+				"unit": "PCE"
+			},
+			"price": {
+				"aspectsData": {
+					"salesItemPrice": {
+						"prices": [
+							{
+								"price": {
+									"amount": 20.0
+								}
+							}
+						]
+					}
+				}
+			},
+			"aspectsData": {
+				"salesItem": {}
+			}
+		}
+	]
+}

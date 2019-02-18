@@ -1,0 +1,198 @@
+syntax = "proto3";
+
+package com.example.spring;
+
+// Request payload
+message OrderRequest {
+// Each message attribute is strongly typed.
+// You also must assign a "tag" number.
+// Each tag number is unique within the message.
+	string owner = 1;
+	Market market = 2;
+	string description = 3;
+	Customer customer = 4;
+	PaymentData paymentData = 5;
+
+	// This defines a strongly typed list of String
+	repeated OrderItems orderItems = 6;
+
+	// There are many more basics types, like Enum, Map
+	// See https://developers.google.com/protocol-buffers/docs/proto3
+	// for more information.
+}
+
+message Market {
+	string marketId = 1;
+	string marketName = 2;
+}
+
+message Customer {
+	string customerNumber = 1;
+}
+
+message PaymentData {
+	string paymentMethod = 1;
+}
+
+message OrderItems {
+	string id = 1;
+	string lineNumber = 2;
+	ItemType itemType = 3;
+	Product product = 4;
+	Quantity quantity = 5;
+	repeated CustomReferences customReferences = 6;
+	ItemPrice price = 7;
+	AspectsData aspectsData = 8;
+	string parentItemId = 9;
+}
+
+enum ItemType {
+	salesItem = 0;
+}
+
+message Product {
+	string id = 1;
+}
+
+message Quantity {
+	string value = 1;
+	string unit = 2;
+}
+
+message ItemPrice {
+	AspectsData aspectsData = 1;
+}
+
+message AspectsData {
+	oneof item_type {
+		SalesItem salesItem = 1;
+		SalesItemPrice salesItemPrice = 2;
+	}
+}
+
+message SalesItem {
+	repeated ScheduleLine scheduleLines = 1;
+}
+
+message ScheduleLine{
+	Quantity quantity = 1;
+	string availableFrom = 2;
+	string scheduleLineId = 3;
+	DeliverySource deliverySource = 4;
+}
+
+message DeliverySource{
+	SourceType sourceType = 1;
+	string sourceId = 2;
+}
+
+enum SourceType{
+	DC = 0;
+}
+
+message SalesItemPrice {
+	repeated SalesItemPriceUnit prices = 1;
+	repeated SalesItemPriceUnitStandard SalesItemPriceUnitStandard = 2;
+	repeated SalesItemPriceTotal priceTotals = 3;
+	repeated SalesItemPriceTotalStandard standardPriceTotals = 4;
+}
+
+message SalesItemPriceUnit {
+	string priceCategory = 1;
+	Price price = 2;
+}
+
+message SalesItemPriceUnitStandard {
+	string priceCategory = 1;
+	Price price = 2;
+}
+
+message SalesItemPriceTotal {
+	string priceCategory = 1;
+	Price price = 2;
+	Taxes taxes = 3;
+}
+
+message SalesItemPriceTotalStandard{
+	string priceCategory = 1;
+	Price price = 2;
+}
+
+message OrderResponse {
+	string id = 1;
+	int64 version = 2;
+	int64 documentNumber = 3;
+	PrecedingDocument precedingDocument = 4;
+	Metadata metadata = 5;
+	string owner = 6;
+	Market market = 7;
+	string timeZone = 8;
+	string currency = 9;
+	PaymentData paymentData = 10;
+	Customer customer = 11;
+	string description = 12;
+	Status status = 13;
+	PriceTotalsDto priceTotals = 14;
+	PriceType priceType = 15;
+	repeated CustomReferences customReferences = 16;
+	repeated OrderItems orderItems = 17;
+	AspectsData asepctsData = 18;
+}
+
+message PrecedingDocument {
+	string precedingDocumentId = 1;
+	string precedingDocumentNumber = 2;
+}
+
+message Metadata {
+	string createdAt = 1;
+	string createdBy = 2;
+	string changedAt = 3;
+	string changedBy = 4;
+}
+
+enum Status {
+	RELEASED = 0;
+}
+
+message PriceTotalsDto {
+	repeated OneTimePriceTotals oneTimePriceTotals = 1;
+	repeated RecurringPriceTotals recurringPriceTotals = 2;
+	repeated RecurringPriceEstimates recurringPriceEstimates = 3;
+}
+
+message OneTimePriceTotals {
+	string priceTotalId = 1;
+	Price price = 2;
+	Taxes taxes = 3;
+}
+
+message Price {
+	double amount = 1;
+	double grossAmount = 2;
+	string currency = 3;
+}
+
+message Taxes {
+	double total = 1;
+	repeated Lines lines = 2;
+}
+
+message Lines {
+	string code = 1;
+	string name = 2;
+	double amount = 3;
+}
+
+message RecurringPriceTotals {
+}
+
+message RecurringPriceEstimates {
+}
+
+enum PriceType {
+	Net = 0;
+}
+
+message CustomReferences {
+}

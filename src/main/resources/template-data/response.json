@@ -1,0 +1,164 @@
+{
+	"id": "18925655-0397-45ca-8c78-a639f108a3c2",
+	"version": 1,
+	"documentNumber": 111556,
+	"metadata": {
+		"createdAt": "2019-01-25T20:31:08.427Z",
+		"changedAt": "2019-01-25T20:31:08.427Z"
+	},
+	"owner": "test100@domain.com",
+	"market": {
+		"marketId": "A1",
+		"marketName": "US East"
+	},
+	"timeZone": "America/New_York",
+	"currency": "USD",
+	"paymentData": {
+		"paymentMethod": "Invoice"
+	},
+	"customer": {
+		"customerNumber": "7519348631"
+	},
+	"description": "test order",
+	"status": "RELEASED",
+	"priceTotals": {
+		"oneTimePriceTotals": [
+			{
+				"priceTotalId": "367CD841-4599-4088-A7F3-AD178EC4552D",
+				"price": {
+					"amount": 20,
+					"grossAmount": 21.78,
+					"currency": "USD"
+				},
+				"taxes": {
+					"total": 1.78,
+					"lines": [
+						{
+							"code": "1 - 25353",
+							"name": "Local Sales and Use Tax",
+							"amount": 0.9
+						},
+						{
+							"code": "1 - 79774",
+							"name": "Metropolitan Commuter Transportation District",
+							"amount": 0.08
+						},
+						{
+							"code": "1 - 24354",
+							"name": "Sales and Compensating Use Tax",
+							"amount": 0.8
+						}
+					]
+				}
+			}
+		],
+		"recurringPriceTotals": [],
+		"recurringPriceEstimates": []
+	},
+	"priceType": "Net",
+	"customReferences": [],
+	"orderItems": [
+		{
+			"id": "d8f8f6d5-2070-4cb7-8c2f-532d63458950",
+			"lineNumber": "1",
+			"itemType": "salesItem",
+			"product": {
+				"id": "437afefd-022d-4ebf-8f6d-cd80742f6dab"
+			},
+			"quantity": {
+				"value": 1,
+				"unit": "PCE"
+			},
+			"customReferences": [],
+			"price": {
+				"aspectsData": {
+					"salesItemPrice": {
+						"prices": [
+							{
+								"priceCategory": "sales",
+								"price": {
+									"amount": 20,
+									"currency": "USD"
+								}
+							}
+						],
+						"standardPrices": [
+							{
+								"priceCategory": "sales",
+								"price": {
+									"amount": 5.28,
+									"currency": "USD"
+								}
+							}
+						],
+						"priceTotals": [
+							{
+								"priceCategory": "onetime",
+								"price": {
+									"amount": 20,
+									"currency": "USD",
+									"grossAmount": 21.78
+								},
+								"taxes": {
+									"total": 1.78,
+									"lines": [
+										{
+											"code": "1 - 24354",
+											"name": "Sales and Compensating Use Tax",
+											"rate": 4,
+											"amount": 0.8
+										},
+										{
+											"code": "1 - 79774",
+											"name": "Metropolitan Commuter Transportation District",
+											"rate": 0.375,
+											"amount": 0.08
+										},
+										{
+											"code": "1 - 25353",
+											"name": "Local Sales and Use Tax",
+											"rate": 4.5,
+											"amount": 0.9
+										}
+									]
+								}
+							}
+						],
+						"standardPriceTotals": [
+							{
+								"priceCategory": "onetime",
+								"price": {
+									"amount": 5.28,
+									"currency": "USD"
+								}
+							}
+						]
+					}
+				}
+			},
+			"aspectsData": {
+				"salesItem": {
+					"scheduleLines": [
+						{
+							"quantity": {
+								"value": 1,
+								"unit": "PCE"
+							},
+							"availableFrom": "2018-08-30T00:00:00.000Z",
+							"scheduleLineId": "917A03BB-DFE0-40CE-AC8B-314F3195ABA5",
+							"deliverySource": {
+								"sourceType": "DC",
+								"sourceId": "DISTRIBUTION-CENTER-MTL"
+							}
+						}
+					]
+				}
+			}
+		}
+	],
+	"aspectsData": {
+		"salesHeader": {
+			
+		}
+	}
+}
